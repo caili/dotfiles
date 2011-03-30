@@ -4,3 +4,16 @@ export JAVA_HOME=/Library/Java/Home
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  
+
+# git
+
+function parse_git_branch {  
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return  
+  echo "("${ref#refs/heads/}") "  
+}  
+RED="\[\033[0;31m\]"  
+YELLOW="\[\033[0;33m\]"  
+GREEN="\[\033[1;32m\]"  
+BLUE="\[\033[1;34m\]"  
+NORMAL="\[\033[0;0m\]"  
+PS1="\u@\h:\w $GREEN\$(parse_git_branch)$NORMAL\$ " 

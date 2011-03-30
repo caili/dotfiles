@@ -52,3 +52,22 @@ def paste
 end
 
 load File.dirname(__FILE__) + '/.railsrc' if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
+
+
+#cai
+
+require "ap"
+
+unless IRB.version.include?('DietRB')
+  IRB::Irb.class_eval do
+    def output_value
+      ap @context.last_value
+    end
+  end
+else # MacRuby
+  IRB.formatter = Class.new(IRB::Formatter) do
+    def inspect_object(object)
+      object.ai
+    end
+  end.new
+end
