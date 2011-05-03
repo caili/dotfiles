@@ -13,3 +13,9 @@ function railsapp {
 
 # misc
 alias reload='. ~/.bash_profile'
+
+#cai
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
