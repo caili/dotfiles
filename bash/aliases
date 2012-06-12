@@ -22,3 +22,8 @@ alias egrep='egrep --color=auto'
 
 alias pru="rvm 1.9.2 exec pru"
 alias heist="rvm 1.9.2 exec heist"
+alias vagrant="rvm 1.9.2 exec vagrant"
+
+alias b='bundle exec'
+
+alias emacs='emacs -nw'
