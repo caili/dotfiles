@@ -10,6 +10,8 @@
 (global-set-key "\C-xf" 'recentf-open-files)
 
 
+(add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
+
 (setq js-indent-level 2)
 (add-hook 'js-mode-hook 'flymake-mode)
 (add-hook 'js-mode-hook '(lambda ()
@@ -57,6 +59,6 @@
 ;(setq scheme-program-name "racket")
 
 
-
+(set-variable 'ffip-limit 2048)
 (set-variable 'ffip-patterns '("*.html" "*.css" "*.rb" "*.yml" "*.feature" "*.js" "*.erb" "*.haml" ))
 (set-variable 'ffip-find-options "-not -regex \".*vendor.*\" -not -regex \".*node_modules.*\"")
