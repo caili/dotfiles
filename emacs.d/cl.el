@@ -1,5 +1,8 @@
 ;(mac-key-mode)
 
+(when (getenv "TERM")
+  (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode))
+
 (delete-selection-mode t)
 
 (setq-default save-place t)
