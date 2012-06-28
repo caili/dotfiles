@@ -15,7 +15,8 @@
     (package-install p)))
 
 (unless (getenv "TERM")
-  (mac-key-mode))
+  (mac-key-mode)
+  (global-set-key (kbd "A-§") 'ns-toggle-fullscreen))
 
 
 (custom-set-variables
