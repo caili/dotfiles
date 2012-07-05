@@ -6,3 +6,6 @@ emacs.d/elpa/
 emacs.d/places
 emacs.d/framegeometry
 emacs.d/.smex-items
+emacs.d/url
+emacs.d/swank
+*.elc

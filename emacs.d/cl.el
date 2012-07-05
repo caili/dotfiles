@@ -56,12 +56,6 @@
 ;(require 'ecb)
 
 
-
-;; Scheme
-(setq scheme-program-name "heist")
-;(setq scheme-program-name "racket")
-
-
 (set-variable 'ffip-limit 2048)
 (set-variable 'ffip-patterns '("*.html" "*.css" "*.rb" "*.yml" "*.feature" "*.js" "*.erb" "*.haml" ))
 (set-variable 'ffip-find-options "-not -regex \".*vendor.*\" -not -regex \".*node_modules.*\"")
