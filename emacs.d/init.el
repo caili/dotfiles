@@ -7,7 +7,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ack-and-a-half starter-kit starter-kit-lisp starter-kit-ruby starter-kit-eshell ecb_snap redo+ mac-key-mode rinari rspec-mode feature-mode flymake flymake-jshint haml-mode coffee-mode yaml-mode)
+(defvar my-packages '(ack-and-a-half starter-kit starter-kit-lisp starter-kit-ruby starter-kit-eshell ecb_snap redo+ mac-key-mode rinari rspec-mode feature-mode flymake flymake-jshint haml-mode coffee-mode yaml-mode buffer-move)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -16,7 +16,16 @@
 
 (unless (getenv "TERM")
   (mac-key-mode)
-  (global-set-key (kbd "A-§") 'ns-toggle-fullscreen))
+  (global-set-key (kbd "A-§") 'ns-toggle-fullscreen)
+  (global-set-key (kbd "A-=") 'text-scale-increase)
+  (global-set-key (kbd "A--") 'text-scale-decrease)
+  (global-set-key (kbd "A-0") 'text-scale-adjust))
+
+(require 'buffer-move)
+(global-set-key (kbd "C-c <left>")   'buf-move-left)
+(global-set-key (kbd "C-c <right>")  'buf-move-right)
+;; (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+;; (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 
 
 (custom-set-variables
