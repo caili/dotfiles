@@ -34,14 +34,16 @@
 
 (add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
 
-(setq js-indent-level 2)
-(add-hook 'js-mode-hook 'flymake-mode)
-(add-hook 'js-mode-hook '(lambda ()
-                           (local-set-key (kbd "RET") 'newline-and-indent)))
-
-;(add-hook 'ruby-mode-hook '(lambda ()
-;                             (local-set-key (kbd "RET") 'newline-and-indent)))
-
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+
+(eval-after-load 'js
+  '(progn
+     ;(define-key js-mode-map "{" 'paredit-open-curly)
+     ;(define-key js-mode-map "}" 'paredit-close-curly)
+     ;(define-key js-mode-map "'" 'paredit-singlequote)
+     ;(add-hook 'js-mode-hook 'esk-paredit-nonlisp)
+     (define-key js-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+     (add-hook 'js-mode-hook 'flymake-mode)
+     (setq js-indent-level 2)))

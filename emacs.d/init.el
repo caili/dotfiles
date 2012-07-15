@@ -41,6 +41,7 @@
  '(ecb-source-path (quote ("~/src" "~/.emacs.d" "~")))
  '(ecb-tip-of-the-day nil)
  '(ecb-toggle-layout-sequence (quote ("left9")))
+ '(electric-pair-mode t)
  '(global-linum-mode t)
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote small) t)
