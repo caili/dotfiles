@@ -9,13 +9,17 @@
   (slime-setup '(slime-repl))
   (slime))
 
-;; ;; Clojure
-;; (defun slime-clojure ()
-;;   (interactive)
-;;   (add-to-list 'load-path "~/.emacs.d/vendor/elpa-slime")
-;;   (require 'slime)
-;;   (slime-setup '(slime-repl))
-;;   (slime-connect "localhost" 4005))
+;; Clojure
+(defun run-clojure ()
+  (interactive)
+  (setq inferior-lisp-program "lein repl")
+  (inferior-lisp "lein repl"))
+(defun slime-clojure ()
+  (interactive)
+  (add-to-list 'load-path "~/.emacs.d/vendor/elpa-slime")
+  (require 'slime)
+  (slime-setup '(slime-repl))
+  (slime-connect "localhost" 4005))
 
 ;; Scheme
 (setq scheme-program-name "heist")

@@ -1,13 +1,17 @@
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ack-and-a-half starter-kit starter-kit-lisp starter-kit-ruby starter-kit-eshell ecb_snap redo+ mac-key-mode rinari rspec-mode feature-mode flymake flymake-jshint haml-mode coffee-mode yaml-mode buffer-move)
+(defvar my-packages '(ack-and-a-half starter-kit starter-kit-ruby starter-kit-eshell ecb_snap redo+ mac-key-mode rinari rspec-mode feature-mode flymake flymake-jshint haml-mode coffee-mode yaml-mode buffer-move clojure-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -24,6 +28,8 @@
 (require 'buffer-move)
 (global-set-key (kbd "C-c <left>")   'buf-move-left)
 (global-set-key (kbd "C-c <right>")  'buf-move-right)
+(global-set-key (kbd "C-c <up>")     'buf-move-up)
+(global-set-key (kbd "C-c <down>")   'buf-move-down)
 ;; (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 ;; (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 
