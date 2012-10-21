@@ -32,11 +32,16 @@
 (set-variable 'ffip-find-options "-not -regex \".*vendor.*\" -not -regex \".*node_modules.*\"")
 
 
-(add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
-
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+
+(add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
+(add-hook 'markdown-mode-hook '(lambda () (auto-fill-mode 0)))
+
 
 (eval-after-load 'js
   '(progn
