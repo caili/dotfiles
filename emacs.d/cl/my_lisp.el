@@ -22,5 +22,5 @@
   (slime-connect "localhost" 4005))
 
 ;; Scheme
-(setq scheme-program-name "heist")
+;(setq scheme-program-name "heist")
 ;(setq scheme-program-name "racket")

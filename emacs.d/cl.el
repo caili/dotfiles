@@ -50,5 +50,28 @@
      ;(define-key js-mode-map "'" 'paredit-singlequote)
      ;(add-hook 'js-mode-hook 'esk-paredit-nonlisp)
      (define-key js-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-     (add-hook 'js-mode-hook 'flymake-mode)
      (setq js-indent-level 2)))
+
+
+;; flymake
+
+(setq temporary-file-directory "~/.emacs.d/tmp/")
+
+(add-hook 'js-mode-hook 'flymake-jslint-load)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+
+;; flymake-go
+
+(require 'flymake)
+
+(defun flymake-go-init ()
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+         (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "go" (list "build" "-o" "/dev/null" temp-file))))
+
+(push '(".+\\.go$" flymake-go-init) flymake-allowed-file-name-masks)
+
+(add-hook 'go-mode-hook 'flymake-mode)
