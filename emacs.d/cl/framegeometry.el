@@ -32,7 +32,8 @@
 ;; Special work to do ONLY when there is a window system being used
 (if window-system
     (progn
-      (add-hook 'after-init-hook 'load-framegeometry)
+      ;;cai (add-hook 'after-init-hook 'load-framegeometry)
+      (load-framegeometry)
       (add-hook 'kill-emacs-hook 'save-framegeometry)))
 
 ;; eof

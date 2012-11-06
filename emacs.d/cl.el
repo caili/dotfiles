@@ -24,8 +24,6 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
-(setq stack-trace-on-error t)
-;(require 'ecb)
 
 (set-variable 'ffip-limit 2048)
 (set-variable 'ffip-patterns '("*.html" "*.css" "*.rb" "*.yml" "*.feature" "*.js" "*.erb" "*.haml" ))

@@ -73,23 +73,25 @@
 
   (eval-after-load 'paredit
     ;; need a binding that works in the terminal
-    '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
+    '(progn
+       (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
+       (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)))
 
-  (dolist (mode '(scheme emacs-lisp lisp clojure))
+  (dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
     (when (> (display-color-cells) 8)
       (font-lock-add-keywords (intern (concat (symbol-name mode) "-mode"))
                               '(("(\\|)" . 'esk-paren-face))))
     (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-              'esk-turn-on-paredit)
-    (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-              'esk-turn-on-paredit))
+              'paredit-mode))
 
   (defun esk-pretty-fn ()
-    (font-lock-add-keywords nil `(("(\\(fn\\>\\)"
+    (font-lock-add-keywords nil `(("(\\(\\<fn\\>\\)"
                                    (0 (progn (compose-region (match-beginning 1)
                                                              (match-end 1)
-                                                             "\u0192") nil))))))
-;;;  (add-hook 'clojure-mode-hook 'esk-pretty-fn)
+                                                             "\u0192"
+                                                             'decompose-region)))))))
+;;cai  (add-hook 'clojure-mode-hook 'esk-pretty-fn)
+;;cai  (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
   )
 
 (provide 'starter-kit-lisp)
