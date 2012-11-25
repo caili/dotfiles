@@ -8,4 +8,5 @@ emacs.d/framegeometry
 emacs.d/.smex-items
 emacs.d/url
 emacs.d/swank
+emacs.d/ac-comphist.dat
 *.elc
