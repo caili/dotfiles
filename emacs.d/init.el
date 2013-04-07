@@ -11,19 +11,31 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ack-and-a-half starter-kit starter-kit-ruby starter-kit-eshell ecb redo+ mac-key-mode rinari rspec-mode feature-mode haml-mode coffee-mode yaml-mode markdown-mode buffer-move clojure-mode go-mode flymake-jslint flymake-ruby auto-complete ac-slime)
+(defvar my-packages '(ack-and-a-half starter-kit starter-kit-eshell ruby-mode ruby-electric ecb rinari rspec-mode feature-mode haml-mode coffee-mode yaml-mode markdown-mode buffer-move clojure-mode go-mode flymake-jslint flymake-ruby auto-complete ac-slime slime undo-tree)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;;; undo-redo
+(global-undo-tree-mode 1)
+(global-set-key (kbd "s-Z") 'undo-tree-redo)
+
+(defun toggle-fullscreen ()
+  "Toggle full screen"
+  (interactive)
+  (set-frame-parameter
+   nil 'fullscreen
+   (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+
 (unless (getenv "TERM")
-  (mac-key-mode)
-  (global-set-key (kbd "A-§") 'ns-toggle-fullscreen)
-  (global-set-key (kbd "A-=") 'text-scale-increase)
-  (global-set-key (kbd "A--") 'text-scale-decrease)
-  (global-set-key (kbd "A-0") 'text-scale-adjust))
+  (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
+  (global-set-key (kbd "s-<right>") 'move-end-of-line)
+  (global-set-key (kbd "s-§") 'toggle-fullscreen)
+  (global-set-key (kbd "s-=") 'text-scale-increase)
+  (global-set-key (kbd "s--") 'text-scale-decrease)
+  (global-set-key (kbd "s-0") 'text-scale-adjust))
 
 (require 'buffer-move)
 (global-set-key (kbd "C-c <left>")   'buf-move-left)
@@ -47,7 +59,6 @@
  '(ecb-source-path (quote ("~/src" "~/.emacs.d" "~")))
  '(ecb-tip-of-the-day nil)
  '(ecb-toggle-layout-sequence (quote ("left9")))
- '(electric-pair-mode t)
  '(global-linum-mode t)
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote small) t)

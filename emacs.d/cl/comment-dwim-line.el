@@ -13,3 +13,4 @@
     (comment-dwim arg)))
 
 (global-set-key "\M-;" 'comment-dwim-line)
+(global-set-key (kbd "s-/") 'comment-dwim-line)
