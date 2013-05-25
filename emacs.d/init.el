@@ -11,7 +11,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ack-and-a-half starter-kit starter-kit-eshell ruby-mode ruby-electric ecb rinari rspec-mode feature-mode haml-mode coffee-mode yaml-mode markdown-mode buffer-move clojure-mode go-mode flymake-jslint flymake-ruby auto-complete ac-slime slime undo-tree)
+(defvar my-packages '(ack-and-a-half starter-kit starter-kit-eshell ruby-mode ruby-electric ecb rinari rspec-mode feature-mode haml-mode coffee-mode yaml-mode markdown-mode buffer-move clojure-mode go-mode flymake-jslint flymake-ruby auto-complete ac-slime slime undo-tree scss-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
