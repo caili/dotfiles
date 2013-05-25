@@ -17,9 +17,8 @@
 (setq-default save-place t)
 (setq-default cursor-type 'bar)
 
-;http://stackoverflow.com/questions/69934/set-4-space-indent-in-emacs-in-text-mode
+(setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
 
