@@ -40,7 +40,8 @@
 (add-hook 'markdown-mode-hook '(lambda () (auto-fill-mode 0)))
 
 ; cucmber
-(setq feature-cucumber-command "bundle exec cucumber \"{feature}\" {options}")
+(setq feature-cucumber-command "bundle exec zeus cucumber \"{feature}\" {options}")
+
 
 
 (eval-after-load 'js
