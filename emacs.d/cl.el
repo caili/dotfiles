@@ -23,7 +23,7 @@
 
 
 (set-variable 'ffip-limit 2048)
-(set-variable 'ffip-patterns '("*.html" "*.css" "*.rb" "*.yml" "*.feature" "*.js" "*.erb" "*.haml" ))
+(set-variable 'ffip-patterns '("*.html" "*.css" "*.scss" "*.sass" "*.rb" "*.yml" "*.feature" "*.js" "*.coffee" "*.erb" "*.haml" ".slim"))
 (set-variable 'ffip-find-options "-not -regex \".*vendor.*\" -not -regex \".*node_modules.*\"")
 
 ; SCSS
@@ -38,6 +38,9 @@
 
 (add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
 (add-hook 'markdown-mode-hook '(lambda () (auto-fill-mode 0)))
+
+; cucmber
+(setq feature-cucumber-command "bundle exec cucumber \"{feature}\" {options}")
 
 
 (eval-after-load 'js
