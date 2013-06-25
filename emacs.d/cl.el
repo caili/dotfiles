@@ -39,10 +39,10 @@
 (add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
 (add-hook 'markdown-mode-hook '(lambda () (auto-fill-mode 0)))
 
-; cucmber
-(setq feature-cucumber-command "bundle exec zeus cucumber \"{feature}\" {options}")
-
-
+; cucmber / rspec
+;(setq feature-cucumber-command "zeus rake cucumber CUCUMBER_OPTS=\"{options}\" FEATURE=\"{feature}\"")
+(setq feature-cucumber-command "zeus cucumber \"{feature}\" {options}")
+(setq rspec-use-rake-when-possible nil)
 
 (eval-after-load 'js
   '(progn
