@@ -23,7 +23,7 @@
 
 
 (set-variable 'ffip-limit 2048)
-(set-variable 'ffip-patterns '("*.html" "*.css" "*.scss" "*.sass" "*.rb" "*.yml" "*.feature" "*.js" "*.coffee" "*.erb" "*.haml" ".slim"))
+(set-variable 'ffip-patterns '("*.html" "*.css" "*.scss" "*.sass" "*.rb" "*.yml" "*.feature" "*.js" "*.coffee" "*.erb" "*.haml" "*.slim"))
 (set-variable 'ffip-find-options "-not -regex \".*vendor.*\" -not -regex \".*node_modules.*\"")
 
 ; SCSS
