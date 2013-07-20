@@ -27,3 +27,7 @@ alias egrep='egrep --color=auto'
 alias b='bundle exec'
 
 alias emacs='emacs -nw'
+
+# zeus
+alias zspec='zeus rspec spec'
+alias zc='zeus cucumber'
