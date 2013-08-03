@@ -70,6 +70,7 @@
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(visible-bell nil)
+ '(ring-bell-function 'ignore)
  '(visual-line-mode nil t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
