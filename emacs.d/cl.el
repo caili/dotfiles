@@ -35,9 +35,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
-
+; disable auto-fill-mode
 (add-hook 'html-mode-hook '(lambda () (auto-fill-mode 0)))
 (add-hook 'markdown-mode-hook '(lambda () (auto-fill-mode 0)))
+(add-hook 'ruby-mode-hook '(lambda () (auto-fill-mode 0)))
+(add-hook 'js-mode-hook '(lambda () (auto-fill-mode 0)))
+(add-hook 'coffee-mode-hook '(lambda () (auto-fill-mode 0)))
+(add-hook 'slim-mode-hook '(lambda () (auto-fill-mode 0)))
 
 ; cucmber / rspec
 ;(setq feature-cucumber-command "zeus rake cucumber CUCUMBER_OPTS=\"{options}\" FEATURE=\"{feature}\"")
