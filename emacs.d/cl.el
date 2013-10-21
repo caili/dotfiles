@@ -42,6 +42,7 @@
 (add-hook 'js-mode-hook '(lambda () (auto-fill-mode 0)))
 (add-hook 'coffee-mode-hook '(lambda () (auto-fill-mode 0)))
 (add-hook 'slim-mode-hook '(lambda () (auto-fill-mode 0)))
+(add-hook 'java-mode-hook '(lambda () (auto-fill-mode 0)))
 
 ; cucmber / rspec
 ;(setq feature-cucumber-command "zeus rake cucumber CUCUMBER_OPTS=\"{options}\" FEATURE=\"{feature}\"")
