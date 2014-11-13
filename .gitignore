@@ -5,8 +5,7 @@ emacs.d/backups/
 emacs.d/elpa/
 emacs.d/places
 emacs.d/framegeometry
-emacs.d/.smex-items
-emacs.d/url
-emacs.d/swank
-emacs.d/ac-comphist.dat
+emacs.d/smex-items
+emacs.d/ido.last
+emacs.d/recentf
 *.elc
