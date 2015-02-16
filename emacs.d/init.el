@@ -10,7 +10,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode)
+(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -51,6 +51,11 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode 1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode 1))
+
+(setq frame-title-format
+      '(buffer-file-name
+        "%f"
+        (dired-directory dired-directory "%b")))
 
 (global-set-key "\C-xf" 'recentf-open-files)
 (global-set-key (kbd "C-c f") 'find-file-in-project)
@@ -160,10 +165,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode t)
- '(ecb-layout-name "left15")
+ '(ecb-layout-name "left13")
  '(ecb-layout-window-sizes
    (quote
-    (("left15"
+    (("left13"
+      (ecb-directories-buffer-name 0.1111111111111111 . 0.9891304347826086))
+     ("left15"
       (ecb-directories-buffer-name 0.18 . 0.7169811320754716)
       (ecb-methods-buffer-name 0.18 . 0.2641509433962264)))))
  '(ecb-options-version "2.40")
@@ -174,7 +181,7 @@
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote small) t)
  '(org-support-shift-select t)
- '(recentf-exclude (quote ("framegeometry")) t)
+ '(recentf-exclude (quote ("framegeometry")))
  '(repository-root-matchers (quote (repository-root-matcher/git)))
  '(ring-bell-function (quote ignore) t)
  '(shift-select-mode t)
