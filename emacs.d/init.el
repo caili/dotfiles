@@ -10,7 +10,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode)
+(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -58,7 +58,7 @@
         (dired-directory dired-directory "%b")))
 
 (global-set-key "\C-xf" 'recentf-open-files)
-(global-set-key (kbd "C-c f") 'find-file-in-project)
+(global-set-key (kbd "C-c f") 'find-file-in-repository)
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -66,6 +66,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (delete-selection-mode t)
+(setq x-select-enable-primary nil)
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -146,7 +147,7 @@
          (prompt (if default
                      (concat "Search for: (default " default ") ")
                    "Search for: "))
-         (search (completing-read prompt nil nil nil default)))
+         (search (read-from-minibuffer prompt nil nil nil nil default)))
     (if (> (length search) 0)
         search
       (or default ""))))
@@ -183,7 +184,7 @@
  '(org-support-shift-select t)
  '(recentf-exclude (quote ("framegeometry")))
  '(repository-root-matchers (quote (repository-root-matcher/git)))
- '(ring-bell-function (quote ignore) t)
+ '(ring-bell-function (quote ignore))
  '(shift-select-mode t)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
