@@ -1,4 +1,4 @@
-export PATH=~/bin:~/.bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=~/bin:~/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/postgresql@9.4/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/current
 
