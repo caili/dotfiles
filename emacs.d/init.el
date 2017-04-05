@@ -10,7 +10,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository)
+(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository hideshowvis flx-ido)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -79,6 +79,14 @@
 
 (require 'recentf)
 (recentf-mode t)
+
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+;(setq ido-enable-flex-matching t)
+;(setq ido-use-faces nil)
 
 (set-variable 'ffip-limit 2048)
 (set-variable 'ffip-patterns '("*.html" "*.css" "*.scss" "*.sass" "*.rb" "*.yml" "*.feature" "*.js" "*.coffee" "*.erb" "*.haml" "*.slim" "*.java"))
@@ -182,6 +190,9 @@
  '(ns-tool-bar-display-mode (quote both) t)
  '(ns-tool-bar-size-mode (quote small) t)
  '(org-support-shift-select t)
+ '(package-selected-packages
+   (quote
+    (hideshowvis yaml-mode undo-tree smex slim-mode scss-mode rspec-mode paredit markdown-mode magit ido-ubiquitous idle-highlight-mode flymake-ruby flymake-jslint find-file-in-repository find-file-in-project feature-mode ecb coffee-mode cider buffer-move better-defaults auto-complete)))
  '(recentf-exclude (quote ("framegeometry")))
  '(repository-root-matchers (quote (repository-root-matcher/git)))
  '(ring-bell-function (quote ignore))
