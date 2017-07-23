@@ -10,7 +10,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository hideshowvis flx-ido)
+(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository flx-ido)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -109,10 +109,9 @@
 (add-hook 'coffee-mode-hook '(lambda () (auto-fill-mode 0)))
 (add-hook 'java-mode-hook '(lambda () (auto-fill-mode 0)))
 
-; cucmber / rspec
-;(setq feature-cucumber-command "zeus rake cucumber CUCUMBER_OPTS=\"{options}\" FEATURE=\"{feature}\"")
-(setq feature-cucumber-command "spring cucumber \"{feature}\" {options}")
-(setq rspec-use-rake-when-possible nil)
+; cucmber
+;; (setq feature-cucumber-command "spring cucumber \"{feature}\" {options}")
+(setq feature-rake-command "spring cucumber \"{feature}\" {options}")
 
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
@@ -165,8 +164,14 @@
     "git-grep the entire current repo"
     (interactive (list (git-grep-prompt)))
     (setq default-directory (vc-git-root default-directory))
-    (grep-find (concat "git --no-pager grep -n "
-                       (shell-quote-argument search)))))
+    (grep-find (concat "git --no-pager grep -n " search))))
+;; (when (require 'vc-git nil t)
+;;   (defun git-grep (search)
+;;     "git-grep the entire current repo"
+;;     (interactive (list (git-grep-prompt)))
+;;     (setq default-directory (vc-git-root default-directory))
+;;     (grep-find (concat "git --no-pager grep -n "
+;;                        (shell-quote-argument search)))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -182,7 +187,7 @@
      ("left15"
       (ecb-directories-buffer-name 0.18 . 0.7169811320754716)
       (ecb-methods-buffer-name 0.18 . 0.2641509433962264)))))
- '(ecb-options-version "2.40")
+ '(ecb-options-version "2.50")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(ecb-source-path (quote ("~/src" "~/.emacs.d" "~")))
  '(ecb-tip-of-the-day nil)
@@ -192,7 +197,7 @@
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (hideshowvis yaml-mode undo-tree smex slim-mode scss-mode rspec-mode paredit markdown-mode magit ido-ubiquitous idle-highlight-mode flymake-ruby flymake-jslint find-file-in-repository find-file-in-project feature-mode ecb coffee-mode cider buffer-move better-defaults auto-complete)))
+    (yaml-mode undo-tree smex slim-mode scss-mode rspec-mode paredit markdown-mode magit ido-ubiquitous idle-highlight-mode flymake-ruby flymake-jslint find-file-in-repository find-file-in-project feature-mode ecb coffee-mode cider buffer-move better-defaults auto-complete)))
  '(recentf-exclude (quote ("framegeometry")))
  '(repository-root-matchers (quote (repository-root-matcher/git)))
  '(ring-bell-function (quote ignore))
