@@ -10,7 +10,7 @@
     (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository flx-ido)
+(defvar my-packages '(better-defaults paredit idle-highlight-mode ido-ubiquitous find-file-in-project magit smex buffer-move ecb ruby-mode rspec-mode feature-mode coffee-mode yaml-mode markdown-mode flymake-jslint flymake-ruby auto-complete undo-tree scss-mode slim-mode cider find-file-in-repository flx-ido rg)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -172,6 +172,17 @@
 ;;     (setq default-directory (vc-git-root default-directory))
 ;;     (grep-find (concat "git --no-pager grep -n "
 ;;                        (shell-quote-argument search)))))
+
+(when (require 'grep nil t)
+  (defun rg-grep ()
+    (interactive)
+    (let* ((regexp (grep-read-regexp))
+           (files "everything"))
+      (rg regexp files (rg-project-root buffer-file-name)))))
+(defvar rg-command "rg -n")
+(setq rg-custom-type-aliases '())
+(rg-define-toggle "-w" "w")
+(rg-define-toggle "-j1" "j")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
