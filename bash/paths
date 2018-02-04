@@ -1,6 +1,8 @@
-export PATH=~/bin:~/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/postgresql@9.4/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/current
+export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+
+export PATH=~/bin:~/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/postgresql@9.4/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator/:~/src/flutter/bin:$PATH
 
 # rbenv
 eval "$(rbenv init -)"
