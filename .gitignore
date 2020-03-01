@@ -9,3 +9,4 @@ emacs.d/smex-items
 emacs.d/ido.last
 emacs.d/recentf
 *.elc
+bundle/cache/*

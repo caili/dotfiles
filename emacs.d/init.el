@@ -32,6 +32,8 @@
    nil 'fullscreen
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
+(global-set-key (kbd "<home>") 'move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
 (unless (getenv "TERM")
   (global-set-key (kbd "s-<left>") 'move-beginning-of-line)
   (global-set-key (kbd "s-<right>") 'move-end-of-line)
